@@ -3,13 +3,14 @@ using System.Collections.Generic;
 
 namespace Yield
 {
-    class MyEnumerable1 : IEnumerable<int>
+    // classic enumerable
+    class ClassicEnumerable : IEnumerable<int>
     {
         private int[] _items = new int[] { 0, 1, 2, 3, 44, 55, 7 };
 
         public IEnumerator<int> GetEnumerator()
         {
-            return new MyEnumerable1Enumerator(this);
+            return new ClassicEnumerableEnumerator(this);
         }
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -17,19 +18,25 @@ namespace Yield
             return GetEnumerator();
         }
 
-        private class MyEnumerable1Enumerator : IEnumerator<int>
+        private class ClassicEnumerableEnumerator : IEnumerator<int>
         {
             int _index = -1;
-            MyEnumerable1 _subject;
+            ClassicEnumerable _subject;
 
-            public MyEnumerable1Enumerator(MyEnumerable1 subject)
+            public ClassicEnumerableEnumerator(ClassicEnumerable subject)
             {
                 _subject = subject;
             }
 
-            public int Current => _subject._items[_index];
+            public int Current
+            {
+                get { return _subject._items[_index]; }
+            }
 
-            object IEnumerator.Current => Current;
+            object IEnumerator.Current
+            {
+                get { return Current; }
+            }
 
             public void Dispose() 
             { }

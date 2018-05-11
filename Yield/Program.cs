@@ -1,4 +1,5 @@
 ﻿using System;
+using static System.Console;
 
 namespace Yield
 {
@@ -6,11 +7,18 @@ namespace Yield
     {
         static void Main(string[] args)
         {
-            foreach (int i in new MyEnumerable1())
+            ClassicEnumerable();
+            
+            ReadLine();
+        }
+
+        private static void ClassicEnumerable()
+        {
+            WriteLine("--- ClassicEnumerable ---");            
+            foreach (int i in new ClassicEnumerable())
             {
-                System.Console.WriteLine(i);
+                WriteLine(i);
             }
-            Console.ReadLine();
         }
     }
 }
