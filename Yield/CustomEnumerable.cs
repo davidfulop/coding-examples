@@ -1,3 +1,5 @@
+using System;
+
 namespace Yield
 {
     // naked, custom enumerable and enumerator
@@ -7,6 +9,7 @@ namespace Yield
 
         public CustomEnumerator GetEnumerator(int startIndex)
         {
+            if (startIndex >= _items.Length) throw new ArgumentException("Nope.");
             return new CustomEnumerator(this, startIndex);
         }
 
@@ -14,18 +17,16 @@ namespace Yield
         {
             private int _index = -1;
             private CustomEnumerable _subject;
-            private readonly int _startIndex;
 
 
             public CustomEnumerator(CustomEnumerable subject, int startIndex)
             {
                 this._subject = subject;
-                this._index = startIndex;
+                this._index = startIndex - 1;
             }
 
             public bool MoveNext()
             {
-
                 return ++_index < _subject._items.Length;
             }
 

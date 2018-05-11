@@ -15,7 +15,9 @@ namespace Yield
 
             // ClassicEnumerableWithYield();
 
-            NumberGenerator();
+            // NumberGenerator();
+
+            CustomEnumerable();
             
             ReadLine();
         }
@@ -53,6 +55,23 @@ namespace Yield
             foreach (int i in new NumberGenerator(49))
             {
                 WriteLine(i);
+            }
+        }
+        
+        private static void CustomEnumerable()
+        {
+            WriteLine("--- CustomEnumerable ---");
+            var list = new CustomEnumerable();
+            var enumerator1 = list.GetEnumerator(0);
+            while (enumerator1.MoveNext())
+            {
+                WriteLine(enumerator1.Current);
+            }
+            WriteLine(Environment.NewLine);
+            var enumerator2 = list.GetEnumerator(4);
+            while (enumerator2.MoveNext())
+            {
+                WriteLine(enumerator2.Current);
             }
         }
     }
