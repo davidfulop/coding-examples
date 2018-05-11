@@ -15,6 +15,8 @@ namespace Yield
 
             // ClassicEnumerableWithYield();
 
+            NumberGenerator();
+            
             ReadLine();
         }
 
@@ -40,6 +42,15 @@ namespace Yield
         {
             WriteLine("--- ClassicEnumerableWithYield ---");            
             foreach (int i in new ClassicEnumerableWithYield())
+            {
+                WriteLine(i);
+            }
+        }
+
+        private static void NumberGenerator()
+        {
+            WriteLine("--- NumberGenerator ---");            
+            foreach (int i in new NumberGenerator(49))
             {
                 WriteLine(i);
             }
