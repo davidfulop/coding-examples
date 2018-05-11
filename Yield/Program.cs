@@ -8,8 +8,19 @@ namespace Yield
         static void Main(string[] args)
         {
             ClassicEnumerable();
+
+            NakedEnumerable();
             
             ReadLine();
+        }
+
+        private static void NakedEnumerable()
+        {
+            WriteLine("--- NakedEnumerable ---");
+            foreach (int i in new NakedEnumerable())
+            {
+                WriteLine(i);
+            }
         }
 
         private static void ClassicEnumerable()
