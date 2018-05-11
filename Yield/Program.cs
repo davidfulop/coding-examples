@@ -7,13 +7,26 @@ namespace Yield
     {
         static void Main(string[] args)
         {
-            ClassicEnumerable();
+            // uncomment the method call(s) you want to test
 
-            NakedEnumerable();
-            
+            // ClassicEnumerable();
+
+            // NakedEnumerable();
+
+            // ClassicEnumerableWithYield();
+
             ReadLine();
         }
 
+
+        private static void ClassicEnumerable()
+        {
+            WriteLine("--- ClassicEnumerable ---");            
+            foreach (int i in new ClassicEnumerable())
+            {
+                WriteLine(i);
+            }
+        }
         private static void NakedEnumerable()
         {
             WriteLine("--- NakedEnumerable ---");
@@ -23,10 +36,10 @@ namespace Yield
             }
         }
 
-        private static void ClassicEnumerable()
+        private static void ClassicEnumerableWithYield()
         {
-            WriteLine("--- ClassicEnumerable ---");            
-            foreach (int i in new ClassicEnumerable())
+            WriteLine("--- ClassicEnumerableWithYield ---");            
+            foreach (int i in new ClassicEnumerableWithYield())
             {
                 WriteLine(i);
             }
